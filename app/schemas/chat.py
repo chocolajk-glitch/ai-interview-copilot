@@ -38,3 +38,12 @@ class AskResponse(BaseModel):
     answer: str = Field(..., description="AI 答案")
     sources: list[str] = Field(default_factory=list, description="引用来源文件名列表")
     provider: str = Field(..., description="实际使用的 provider")
+
+class StreamAskRequest(BaseModel):
+    """SSE 流式 RAG 问答请求。"""
+    question: str = Field(..., min_length=1, max_length=4000, description="用户问题")
+    provider: Literal["deepseek", "qwen", "minimax"] | None = Field(
+        default=None,
+        description="LLM provider（不传用默认）"
+    )
+    top_k: int = Field(default=3, ge=1, le=10, description="检索 top-k")

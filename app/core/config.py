@@ -31,6 +31,7 @@ class Settings(BaseSettings):
 
     EMBEDDING_MODEL: str = "BAAI/bge-small-zh-v1.5"
     EMBEDDING_DEVICE: str = "cpu"
+    RERANK_MODEL: str = "BAAI/bge-reranker-base"
 
     DATABASE_URL: str = "sqlite+aiosqlite:///./data/app.db"
 

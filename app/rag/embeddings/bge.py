@@ -1,7 +1,7 @@
 """BGE Embedding 模型：把文本转成向量（单例懒加载）。"""
 from functools import lru_cache
 
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 from app.core.config import settings
 

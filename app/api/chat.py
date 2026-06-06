@@ -3,7 +3,10 @@ import time
 from app.rag.chain import ask as rag_ask
 from app.schemas.chat import AskRequest, AskResponse
 from fastapi import APIRouter, HTTPException
-
+import json
+from fastapi.responses import StreamingResponse
+from app.rag.chain import astream as rag_astream
+from app.schemas.chat import StreamAskRequest
 from app.core.config import settings
 from app.llm.factory import chat, get_llm
 from app.schemas.chat import ChatRequest, ChatResponse
@@ -45,4 +48,40 @@ async def chat_ask(req: AskRequest) -> AskResponse:
         answer=result["answer"],
         sources=result["sources"],
         provider=provider,
+    )
+
+@router.post(
+    "/stream",
+    response_class=StreamingResponse,  # ← 新增：Swagger UI 识别 SSE
+    responses={
+        200: {
+            "content": {"text/event-stream": {}},  # ← 新增：告诉 OpenAPI 响应类型
+            "description": "SSE stream of RAG answer",
+        }
+    },
+)
+async def chat_stream(req: StreamAskRequest):
+    """SSE 流式 RAG 问答：边检索边生成，chunk 级别推送。"""
+    from app.core.config import settings as cfg
+    provider = req.provider or cfg.LLM_PROVIDER
+
+    async def event_generator():
+        """SSE 事件生成器：把 astream() 输出转 SSE 格式。"""
+        async for event in rag_astream(req.question, provider=provider, k=req.top_k):
+            if event["type"] == "chunk":
+                payload = json.dumps({"chunk": event["content"]}, ensure_ascii=False)
+                yield f"data: {payload}\n\n"
+            elif event["type"] == "sources":
+                payload = json.dumps({"sources": event["sources"]}, ensure_ascii=False)
+                yield f"data: {payload}\n\n"
+            elif event["type"] == "done":
+                yield "data: [DONE]\n\n"
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "X-Accel-Buffering": "no",
+        },
     )
