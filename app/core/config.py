@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     MINIMAX_MODEL: str = "MiniMax-M2.7"
     MINIMAX_BASE_URL: str = "https://api.minimaxi.com/v1"
 
-    EMBEDDING_MODEL: str = "BAAI/bge-large-zh-v1.5"
+    EMBEDDING_MODEL: str = "BAAI/bge-small-zh-v1.5"
     EMBEDDING_DEVICE: str = "cpu"
 
     DATABASE_URL: str = "sqlite+aiosqlite:///./data/app.db"

@@ -31,6 +31,22 @@ class OpenAICompatModel:
         )
         return AIMessage(content=r.choices[0].message.content or "")
 
+    def as_runnable(self):
+        """包成 Runnable，让 OpenAICompatModel 能进 LCEL 链式语法。"""
+        from langchain_core.runnables import RunnableLambda
+
+        def _call(input):
+            # Duck typing：兼容 3 种输入（ChatPromptValue / dict / list[BaseMessage]）
+            if hasattr(input, "messages"):
+                messages = input.messages
+            elif isinstance(input, dict) and "messages" in input:
+                messages = input["messages"]
+            else:
+                messages = input
+            return self.invoke(messages)
+
+        return RunnableLambda(_call)
+
 
 def get_llm(
     provider: LLMProvider | None = None,
@@ -60,7 +76,7 @@ def get_llm(
     raise ValueError(f"Unknown LLM provider: {provider}")
 
 
-def chat(message: str, provider: LLMProvider | None = None) -> str:
-    llm = get_llm(provider)
+def chat(message: str, provider: LLMProvider | None = None, temperature: float = 0.7) -> str:
+    llm = get_llm(provider, temperature)
     response = llm.invoke([HumanMessage(content=message)])
     return response.content
