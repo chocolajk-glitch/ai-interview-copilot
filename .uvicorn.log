@@ -1,0 +1,980 @@
+2026-06-07 17:30:29.615 | INFO     | app.eval.ragas_eval:<module>:103 - Monkey-patched PreTrainedTokenizerBase.prepare_for_model (shim for transformers 5.x)
+INFO:     Started server process [76088]
+INFO:     Waiting for application startup.
+2026-06-07 17:30:29,671 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-07 17:30:29,672 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("documents")
+2026-06-07 17:30:29,672 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-06-07 17:30:29,673 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("conversations")
+2026-06-07 17:30:29,673 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-06-07 17:30:29,674 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("messages")
+2026-06-07 17:30:29,674 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-06-07 17:30:29,675 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("feedbacks")
+2026-06-07 17:30:29,675 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-06-07 17:30:29,676 INFO sqlalchemy.engine.Engine COMMIT
+[32m2026-06-07 17:30:29[0m | [1mINFO    [0m | [36mapp.main[0m:[36mlifespan[0m:[36m19[0m - [1m🚀 启动 | LLM=deepseek | Port=8000[0m
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60318 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59656 - "OPTIONS /api/eval/run HTTP/1.1" 200 OK
+Loading weights:   0%|          | 0/71 [00:00<?, ?it/s]Loading weights: 100%|██████████| 71/71 [00:00<00:00, 9532.20it/s]
+D:\Python-Project\ai-interview-copilot\backend\app\rag\retrievers\vector_retriever.py:25: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the `langchain-chroma package and should be used instead. To use it run `pip install -U `langchain-chroma` and import as `from `langchain_chroma import Chroma``.
+  _vector_store = Chroma(
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 5222.26it/s]
+Evaluating:   0%|          | 0/20 [00:00<?, ?it/s]Evaluating:   5%|▌         | 1/20 [00:01<00:22,  1.16s/it]Evaluating:  15%|█▌        | 3/20 [00:01<00:05,  2.89it/s]Evaluating:  25%|██▌       | 5/20 [00:01<00:05,  2.88it/s]Evaluating:  30%|███       | 6/20 [00:02<00:04,  3.09it/s]Evaluating:  40%|████      | 8/20 [00:02<00:02,  4.84it/s]Evaluating:  50%|█████     | 10/20 [00:02<00:01,  5.44it/s]Evaluating:  55%|█████▌    | 11/20 [00:03<00:02,  3.27it/s]Evaluating:  60%|██████    | 12/20 [00:03<00:02,  2.86it/s]Evaluating:  65%|██████▌   | 13/20 [00:04<00:02,  2.75it/s]Evaluating:  70%|███████   | 14/20 [00:04<00:01,  3.04it/s]Evaluating:  75%|███████▌  | 15/20 [00:04<00:01,  2.77it/s]Evaluating:  85%|████████▌ | 17/20 [00:05<00:00,  4.45it/s]Evaluating:  90%|█████████ | 18/20 [00:05<00:00,  3.67it/s]Evaluating:  95%|█████████▌| 19/20 [00:10<00:01,  1.51s/it]Evaluating: 100%|██████████| 20/20 [00:10<00:00,  1.20s/it]Evaluating: 100%|██████████| 20/20 [00:10<00:00,  1.82it/s]
+INFO:     127.0.0.1:59656 - "POST /api/eval/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63365 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65323 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65323 - "GET /health HTTP/1.1" 200 OK
+2026-06-07 17:43:56,406 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-07 17:43:56,410 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-07 17:43:56,410 INFO sqlalchemy.engine.Engine [generated in 0.00021s] ()
+INFO:     127.0.0.1:65323 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-07 17:43:56,416 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55084 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55084 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55084 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53067 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49386 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59843 - "GET /api/eval/dataset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63470 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63470 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54125 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62177 - "POST /api/chat/agent/stream HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Software\develop\Python\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 1037, in request
+    response = self._send_request(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_client.py", line 440, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_client.py", line 418, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 964, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\develop\Python\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 62, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\app\api\chat.py", line 188, in chat_agent_stream
+    state = query_analyzer(state)
+  File "D:\Python-Project\ai-interview-copilot\backend\app\graph\nodes.py", line 87, in query_analyzer
+    result = chain.invoke({"question": state["question"]}).strip().lower()
+             ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\runnables\base.py", line 3335, in invoke
+    input_ = context.run(step.invoke, input_, config)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 474, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1823, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1630, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1970, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_deepseek\chat_models.py", line 396, in _generate
+    return super()._generate(
+           ~~~~~~~~~~~~~~~~~^
+        messages,
+        ^^^^^^^^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1667, in _generate
+    _handle_openai_api_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1662, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_legacy_response.py", line 367, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1251, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<52 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 1332, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 1072, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+INFO:     127.0.0.1:65027 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65027 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61471 - "POST /api/chat/agent/stream HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Software\develop\Python\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 1037, in request
+    response = self._send_request(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_client.py", line 440, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_client.py", line 418, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 964, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\develop\Python\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 62, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\app\api\chat.py", line 188, in chat_agent_stream
+    state = query_analyzer(state)
+  File "D:\Python-Project\ai-interview-copilot\backend\app\graph\nodes.py", line 87, in query_analyzer
+    result = chain.invoke({"question": state["question"]}).strip().lower()
+             ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\runnables\base.py", line 3335, in invoke
+    input_ = context.run(step.invoke, input_, config)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 474, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1823, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1630, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1970, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_deepseek\chat_models.py", line 396, in _generate
+    return super()._generate(
+           ~~~~~~~~~~~~~~~~~^
+        messages,
+        ^^^^^^^^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1667, in _generate
+    _handle_openai_api_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1662, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_legacy_response.py", line 367, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1251, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<52 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 1332, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 1072, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+INFO:     127.0.0.1:59865 - "POST /api/chat/agent/stream HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Software\develop\Python\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 1037, in request
+    response = self._send_request(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_client.py", line 440, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_client.py", line 418, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 964, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\develop\Python\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 62, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\applications.py", line 1159, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\app\api\chat.py", line 188, in chat_agent_stream
+    state = query_analyzer(state)
+  File "D:\Python-Project\ai-interview-copilot\backend\app\graph\nodes.py", line 87, in query_analyzer
+    result = chain.invoke({"question": state["question"]}).strip().lower()
+             ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\runnables\base.py", line 3335, in invoke
+    input_ = context.run(step.invoke, input_, config)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 474, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1823, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1630, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1970, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_deepseek\chat_models.py", line 396, in _generate
+    return super()._generate(
+           ~~~~~~~~~~~~~~~~~^
+        messages,
+        ^^^^^^^^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1667, in _generate
+    _handle_openai_api_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1662, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_legacy_response.py", line 367, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ~~~~^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1251, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<52 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 1332, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python-Project\ai-interview-copilot\backend\.venv\Lib\site-packages\openai\_base_client.py", line 1072, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+INFO:     127.0.0.1:61117 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61117 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52784 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55701 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54695 - "OPTIONS /api/chat/feedback HTTP/1.1" 200 OK
+2026-06-08 08:33:53,560 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 08:33:53,631 INFO sqlalchemy.engine.Engine INSERT INTO feedbacks (session_id, question, answer, rating, comment, created_at) VALUES (?, ?, ?, ?, ?, ?)
+2026-06-08 08:33:53,631 INFO sqlalchemy.engine.Engine [generated in 0.00697s] ('1f4229c5-88af-4944-9be8-0e5346b4907b', '两数之和怎么求', '根据文档内容，两数之和的求解方法如下：\n\n该问题要求在一个整数数组 `nums` 中找出两个数，使它们的和等于目标值 `target`，并返回这两个数的索引。代码实现使用哈希表（字典）来高效求解：\n\n1. 创建一个空字典 `seen`，用于存储已遍历过的数字及其索引（键为数字，值为索引）[ ... (180 characters truncated) ... 的索引和当前索引 [1]。\n   - 如果不存在，将当前数字 `num` 及其索引 `i` 存入 `seen` 中，继续遍历 [1]。\n4. 如果遍历结束仍未找到，返回空列表 `[]` [1]。\n\n此方法的时间复杂度为 O(n)，空间复杂度为 O(n)，其中 n 为数组长度 [1][2]。', 'thumbs_up', None, '2026-06-08 08:33:53.628986')
+2026-06-08 08:33:53,661 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:54695 - "POST /api/chat/feedback HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51771 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53705 - "GET /api/eval/dataset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59286 - "GET /health HTTP/1.1" 200 OK
+2026-06-08 08:35:54,661 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 08:35:54,664 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 08:35:54,665 INFO sqlalchemy.engine.Engine [cached since 5.355e+04s ago] ()
+INFO:     127.0.0.1:57537 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 08:35:54,683 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:53115 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52627 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53958 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53958 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61703 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61703 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62818 - "GET /api/eval/dataset HTTP/1.1" 200 OK
+2026-06-08 08:38:37,105 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 08:38:37,105 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 08:38:37,105 INFO sqlalchemy.engine.Engine [cached since 5.371e+04s ago] ()
+INFO:     127.0.0.1:62818 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 08:38:37,108 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 08:39:11,947 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 08:39:11,948 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 08:39:11,948 INFO sqlalchemy.engine.Engine [cached since 5.374e+04s ago] ()
+INFO:     127.0.0.1:52842 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 08:39:11,955 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:56876 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65450 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55181 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53768 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50790 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49899 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64851 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53003 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56615 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54267 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62258 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62258 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60492 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60492 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54909 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54909 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53208 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52552 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52552 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56091 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+2026-06-08 09:23:06,028 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:06,040 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:23:06,040 INFO sqlalchemy.engine.Engine [cached since 5.638e+04s ago] ()
+INFO:     127.0.0.1:64194 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:23:06,067 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:23:07,533 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:07,534 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:23:07,534 INFO sqlalchemy.engine.Engine [cached since 5.638e+04s ago] ()
+INFO:     127.0.0.1:64194 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:23:07,536 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:23:09,344 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:09,344 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:23:09,344 INFO sqlalchemy.engine.Engine [cached since 5.638e+04s ago] ()
+INFO:     127.0.0.1:58645 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:23:09,346 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:58645 - "GET /api/eval/dataset HTTP/1.1" 200 OK
+2026-06-08 09:23:11,554 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:11,554 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:23:11,554 INFO sqlalchemy.engine.Engine [cached since 5.638e+04s ago] ()
+INFO:     127.0.0.1:58645 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:23:11,559 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:63858 - "OPTIONS /api/document/upload HTTP/1.1" 200 OK
+2026-06-08 09:23:25,593 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:25,674 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.sha256 = ?
+2026-06-08 09:23:25,674 INFO sqlalchemy.engine.Engine [generated in 0.00453s] ('7fd9eb5be1576991aa8e2abcaee3094d295ae6d086e67813d112dc3074586dad',)
+2026-06-08 09:23:25,811 INFO sqlalchemy.engine.Engine INSERT INTO documents (doc_id, sha256, filename, status, chunk_count, new_chunks, skipped_chunks, error, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-06-08 09:23:25,811 INFO sqlalchemy.engine.Engine [generated in 0.00588s] ('188191709f99409b', '7fd9eb5be1576991aa8e2abcaee3094d295ae6d086e67813d112dc3074586dad', 'Leetcode.md', <DocStatus.PENDING: 'pending'>, 0, 0, 0, None, '2026-06-08 09:23:25.810647')
+2026-06-08 09:23:25,826 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:63858 - "POST /api/document/upload HTTP/1.1" 200 OK
+2026-06-08 09:23:25,849 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:25,850 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.doc_id = ?
+2026-06-08 09:23:25,850 INFO sqlalchemy.engine.Engine [generated in 0.00032s] ('188191709f99409b',)
+2026-06-08 09:23:25,906 INFO sqlalchemy.engine.Engine UPDATE documents SET status=? WHERE documents.doc_id = ?
+2026-06-08 09:23:25,906 INFO sqlalchemy.engine.Engine [generated in 0.00047s] (<DocStatus.PROCESSING: 'processing'>, '188191709f99409b')
+2026-06-08 09:23:25,912 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:25,912 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:23:25,912 INFO sqlalchemy.engine.Engine [cached since 5.64e+04s ago] ()
+2026-06-08 09:23:25,915 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:63858 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:23:25,918 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:23:30,485 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:30,486 INFO sqlalchemy.engine.Engine UPDATE documents SET status=?, chunk_count=?, new_chunks=? WHERE documents.doc_id = ?
+2026-06-08 09:23:30,486 INFO sqlalchemy.engine.Engine [generated in 0.00027s] (<DocStatus.READY: 'ready'>, 100, 100, '188191709f99409b')
+2026-06-08 09:23:30,495 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:30,496 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.doc_id = ?
+2026-06-08 09:23:30,496 INFO sqlalchemy.engine.Engine [cached since 4.646s ago] ('188191709f99409b',)
+INFO:     127.0.0.1:63858 - "GET /api/document/188191709f99409b/status HTTP/1.1" 200 OK
+2026-06-08 09:23:30,499 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:23:30,500 INFO sqlalchemy.engine.Engine COMMIT
+2026-06-08 09:23:30,501 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:30,502 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.doc_id = ?
+2026-06-08 09:23:30,502 INFO sqlalchemy.engine.Engine [cached since 4.652s ago] ('188191709f99409b',)
+INFO:     127.0.0.1:63858 - "GET /api/document/188191709f99409b/status HTTP/1.1" 200 OK
+2026-06-08 09:23:30,520 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:63858 - "GET /api/eval/dataset HTTP/1.1" 200 OK
+2026-06-08 09:23:38,475 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:23:38,475 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:23:38,475 INFO sqlalchemy.engine.Engine [cached since 5.641e+04s ago] ()
+INFO:     127.0.0.1:63858 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:23:38,478 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:63858 - "GET /api/eval/dataset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56498 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56498 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53910 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50485 - "GET /api/eval/dataset HTTP/1.1" 200 OK
+2026-06-08 09:28:20,570 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:28:20,570 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:28:20,570 INFO sqlalchemy.engine.Engine [cached since 5.669e+04s ago] ()
+INFO:     127.0.0.1:50485 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:28:20,573 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:28:35,745 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:28:35,746 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:28:35,746 INFO sqlalchemy.engine.Engine [cached since 5.671e+04s ago] ()
+INFO:     127.0.0.1:64554 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:28:35,749 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:58274 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+2026-06-08 09:29:46,570 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:29:46,570 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:29:46,571 INFO sqlalchemy.engine.Engine [cached since 5.678e+04s ago] ()
+INFO:     127.0.0.1:54094 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:29:46,573 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:30:31,407 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:30:31,407 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:30:31,408 INFO sqlalchemy.engine.Engine [cached since 5.682e+04s ago] ()
+INFO:     127.0.0.1:64369 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:30:31,412 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:30:43,814 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:30:43,814 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:30:43,814 INFO sqlalchemy.engine.Engine [cached since 5.683e+04s ago] ()
+INFO:     127.0.0.1:59287 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:30:43,816 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55857 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+2026-06-08 09:42:28,775 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:42:28,781 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:42:28,782 INFO sqlalchemy.engine.Engine [cached since 5.754e+04s ago] ()
+INFO:     127.0.0.1:60917 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:42:28,789 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:48:03,598 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:03,598 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:48:03,598 INFO sqlalchemy.engine.Engine [cached since 5.787e+04s ago] ()
+INFO:     127.0.0.1:59049 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:48:03,603 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:59049 - "OPTIONS /api/document/188191709f99409b HTTP/1.1" 200 OK
+2026-06-08 09:48:05,656 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:05,657 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.doc_id = ?
+2026-06-08 09:48:05,657 INFO sqlalchemy.engine.Engine [cached since 1480s ago] ('188191709f99409b',)
+2026-06-08 09:48:06,260 INFO sqlalchemy.engine.Engine DELETE FROM documents WHERE documents.doc_id = ?
+2026-06-08 09:48:06,260 INFO sqlalchemy.engine.Engine [generated in 0.00105s] ('188191709f99409b',)
+2026-06-08 09:48:06,271 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:59049 - "DELETE /api/document/188191709f99409b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49228 - "OPTIONS /api/document/upload HTTP/1.1" 200 OK
+2026-06-08 09:48:13,760 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:13,761 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.sha256 = ?
+2026-06-08 09:48:13,761 INFO sqlalchemy.engine.Engine [cached since 1488s ago] ('51028fd5f579e63356d9dbc4037f580ee0e786e9cdc08620f02a009818a10ee6',)
+2026-06-08 09:48:13,776 INFO sqlalchemy.engine.Engine INSERT INTO documents (doc_id, sha256, filename, status, chunk_count, new_chunks, skipped_chunks, error, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-06-08 09:48:13,776 INFO sqlalchemy.engine.Engine [cached since 1488s ago] ('4fee0eb6c1774242', '51028fd5f579e63356d9dbc4037f580ee0e786e9cdc08620f02a009818a10ee6', 'Leetcode.md', <DocStatus.PENDING: 'pending'>, 0, 0, 0, None, '2026-06-08 09:48:13.775671')
+2026-06-08 09:48:13,783 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:49228 - "POST /api/document/upload HTTP/1.1" 200 OK
+2026-06-08 09:48:13,792 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:13,793 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.doc_id = ?
+2026-06-08 09:48:13,793 INFO sqlalchemy.engine.Engine [cached since 1488s ago] ('4fee0eb6c1774242',)
+2026-06-08 09:48:13,794 INFO sqlalchemy.engine.Engine UPDATE documents SET status=? WHERE documents.doc_id = ?
+2026-06-08 09:48:13,794 INFO sqlalchemy.engine.Engine [cached since 1488s ago] (<DocStatus.PROCESSING: 'processing'>, '4fee0eb6c1774242')
+2026-06-08 09:48:13,797 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:13,798 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents ORDER BY documents.created_at DESC
+2026-06-08 09:48:13,798 INFO sqlalchemy.engine.Engine [cached since 5.788e+04s ago] ()
+2026-06-08 09:48:13,798 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:49228 - "GET /api/document HTTP/1.1" 200 OK
+2026-06-08 09:48:13,800 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:48:24,406 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:24,406 INFO sqlalchemy.engine.Engine UPDATE documents SET status=?, chunk_count=?, new_chunks=? WHERE documents.doc_id = ?
+2026-06-08 09:48:24,406 INFO sqlalchemy.engine.Engine [cached since 1494s ago] (<DocStatus.READY: 'ready'>, 100, 100, '4fee0eb6c1774242')
+2026-06-08 09:48:24,417 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:24,421 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.doc_id = ?
+2026-06-08 09:48:24,421 INFO sqlalchemy.engine.Engine [cached since 1499s ago] ('4fee0eb6c1774242',)
+INFO:     127.0.0.1:49228 - "GET /api/document/4fee0eb6c1774242/status HTTP/1.1" 200 OK
+2026-06-08 09:48:24,425 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:48:24,427 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:24,427 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.doc_id = ?
+2026-06-08 09:48:24,427 INFO sqlalchemy.engine.Engine [cached since 1499s ago] ('4fee0eb6c1774242',)
+2026-06-08 09:48:24,428 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:49228 - "GET /api/document/4fee0eb6c1774242/status HTTP/1.1" 200 OK
+2026-06-08 09:48:24,439 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:48:24,621 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:24,621 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.doc_id = ?
+2026-06-08 09:48:24,621 INFO sqlalchemy.engine.Engine [cached since 1499s ago] ('4fee0eb6c1774242',)
+INFO:     127.0.0.1:49228 - "GET /api/document/4fee0eb6c1774242/status HTTP/1.1" 200 OK
+2026-06-08 09:48:24,628 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:48:24,631 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:24,631 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.doc_id = ?
+2026-06-08 09:48:24,631 INFO sqlalchemy.engine.Engine [cached since 1499s ago] ('4fee0eb6c1774242',)
+INFO:     127.0.0.1:49228 - "GET /api/document/4fee0eb6c1774242/status HTTP/1.1" 200 OK
+2026-06-08 09:48:24,633 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-06-08 09:48:24,635 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 09:48:24,635 INFO sqlalchemy.engine.Engine SELECT documents.doc_id, documents.sha256, documents.filename, documents.status, documents.chunk_count, documents.new_chunks, documents.skipped_chunks, documents.error, documents.created_at 
+FROM documents 
+WHERE documents.doc_id = ?
+2026-06-08 09:48:24,635 INFO sqlalchemy.engine.Engine [cached since 1499s ago] ('4fee0eb6c1774242',)
+INFO:     127.0.0.1:49228 - "GET /api/document/4fee0eb6c1774242/status HTTP/1.1" 200 OK
+2026-06-08 09:48:24,637 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64533 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56444 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51765 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53103 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53103 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59161 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59161 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63999 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53705 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61895 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60369 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59710 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59710 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57771 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55715 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55604 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61133 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62715 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62715 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52036 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56188 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63455 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51785 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60791 - "OPTIONS /api/chat/feedback HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53206 - "OPTIONS /api/chat/feedback HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65531 - "OPTIONS /api/chat/feedback HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63389 - "OPTIONS /api/chat/feedback HTTP/1.1" 200 OK
+2026-06-08 11:44:26,135 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 11:44:26,154 INFO sqlalchemy.engine.Engine INSERT INTO feedbacks (session_id, question, answer, rating, comment, created_at) VALUES (?, ?, ?, ?, ?, ?)
+2026-06-08 11:44:26,155 INFO sqlalchemy.engine.Engine [cached since 1.143e+04s ago] ('81e44c07-9321-4a5f-9917-51e1b1760b2f', '提供给我完整的代码', '根据您提供的文档内容，其中仅包含“## 代码实现”这一标题，但未提供任何具体的代码实现细节。因此，我无法基于现有文档内容提供完整的代码。\n\n如需获取完整代码，请提供包含具体代码内容的文档片段。\n\n[1][2][3] 中均无代码内容。', 'thumbs_down', None, '2026-06-08 11:44:26.152634')
+2026-06-08 11:44:26,166 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 11:44:26,167 INFO sqlalchemy.engine.Engine INSERT INTO feedbacks (session_id, question, answer, rating, comment, created_at) VALUES (?, ?, ?, ?, ?, ?)
+2026-06-08 11:44:26,167 INFO sqlalchemy.engine.Engine [cached since 1.143e+04s ago] ('81e44c07-9321-4a5f-9917-51e1b1760b2f', '提供给我完整的代码', '根据您提供的文档内容，其中仅包含“## 代码实现”这一标题，但未提供任何具体的代码实现细节。因此，我无法基于现有文档内容提供完整的代码。\n\n如需获取完整代码，请提供包含具体代码内容的文档片段。\n\n[1][2][3] 中均无代码内容。', 'thumbs_down', None, '2026-06-08 11:44:26.166970')
+2026-06-08 11:44:26,170 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 11:44:26,170 INFO sqlalchemy.engine.Engine INSERT INTO feedbacks (session_id, question, answer, rating, comment, created_at) VALUES (?, ?, ?, ?, ?, ?)
+2026-06-08 11:44:26,171 INFO sqlalchemy.engine.Engine [cached since 1.143e+04s ago] ('81e44c07-9321-4a5f-9917-51e1b1760b2f', '提供给我完整的代码', '根据您提供的文档内容，其中仅包含“## 代码实现”这一标题，但未提供任何具体的代码实现细节。因此，我无法基于现有文档内容提供完整的代码。\n\n如需获取完整代码，请提供包含具体代码内容的文档片段。\n\n[1][2][3] 中均无代码内容。', 'thumbs_up', None, '2026-06-08 11:44:26.170832')
+2026-06-08 11:44:26,183 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 11:44:26,184 INFO sqlalchemy.engine.Engine INSERT INTO feedbacks (session_id, question, answer, rating, comment, created_at) VALUES (?, ?, ?, ?, ?, ?)
+2026-06-08 11:44:26,184 INFO sqlalchemy.engine.Engine [cached since 1.143e+04s ago] ('81e44c07-9321-4a5f-9917-51e1b1760b2f', '提供给我完整的代码', '根据您提供的文档内容，其中仅包含“## 代码实现”这一标题，但未提供任何具体的代码实现细节。因此，我无法基于现有文档内容提供完整的代码。\n\n如需获取完整代码，请提供包含具体代码内容的文档片段。\n\n[1][2][3] 中均无代码内容。', 'thumbs_down', None, '2026-06-08 11:44:26.184146')
+2026-06-08 11:44:26,189 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:53206 - "POST /api/chat/feedback HTTP/1.1" 200 OK
+2026-06-08 11:44:26,217 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:63389 - "POST /api/chat/feedback HTTP/1.1" 200 OK
+2026-06-08 11:44:26,232 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:65531 - "POST /api/chat/feedback HTTP/1.1" 200 OK
+2026-06-08 11:44:26,253 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:60791 - "POST /api/chat/feedback HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58919 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64516 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64516 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52692 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59390 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61402 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61402 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54516 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59394 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65343 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65343 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58507 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49278 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49278 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53546 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57002 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60002 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60002 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53691 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60589 - "OPTIONS /api/chat/feedback HTTP/1.1" 200 OK
+2026-06-08 14:23:36,198 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-06-08 14:23:36,212 INFO sqlalchemy.engine.Engine INSERT INTO feedbacks (session_id, question, answer, rating, comment, created_at) VALUES (?, ?, ?, ?, ?, ?)
+2026-06-08 14:23:36,213 INFO sqlalchemy.engine.Engine [cached since 2.098e+04s ago] ('81e44c07-9321-4a5f-9917-51e1b1760b2f', '六个苹果怎么分给3个人', '抱歉，您的问题“六个苹果怎么分给3个人”与提供的文档内容（LeetCode算法题、链表合并、二分查找、相交链表等）无关。文档中没有关于分苹果或任何分配问题的信息。\n\n根据文档内容，我只能回答与算法、数据结构相关的问题。如果您有其他关于面试算法的问题，请随时提问。', 'thumbs_down', None, '2026-06-08 14:23:36.212200')
+2026-06-08 14:23:36,228 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:60589 - "POST /api/chat/feedback HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58221 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58221 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50118 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62965 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49604 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59605 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59605 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63685 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53230 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49646 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49646 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57623 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56529 - "POST /api/chat/agent/stream HTTP/1.1" 200 OK

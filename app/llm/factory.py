@@ -1,4 +1,5 @@
-"""LLM 工厂：按 LLM_PROVIDER 环境变量返回对应 LLM client。"""
+"""LLM 工厂：按 LLM_PROVIDER 环境变量返回对应 LLM client，支持重试与降级。"""
+import time
 from typing import AsyncIterator, Iterator, Literal, Union
 
 from langchain_core.language_models.chat_models import BaseChatModel
@@ -7,8 +8,19 @@ from langchain_core.runnables import Runnable
 from langchain_deepseek import ChatDeepSeek
 from openai import AsyncOpenAI, OpenAI
 from app.core.config import settings
+from app.core.logging import logger
 
 LLMProvider = Literal["deepseek", "qwen", "minimax"]
+
+# 降级顺序：当前 provider 失败后依次尝试
+_FALLBACK_ORDER: dict[str, list[str]] = {
+    "deepseek": ["qwen", "minimax"],
+    "qwen": ["deepseek", "minimax"],
+    "minimax": ["deepseek", "qwen"],
+}
+
+_MAX_RETRIES = 2
+_RETRY_DELAY = 1.0  # 秒
 
 
 def _extract_messages(input) -> list:
@@ -18,7 +30,7 @@ def _extract_messages(input) -> list:
     if isinstance(input, dict) and "messages" in input:
         return input["messages"]
     if isinstance(input, str):
-        return [HumanMessage(content=input)]  # ← 新增这 3 行
+        return [HumanMessage(content=input)]
     return input
 
 
@@ -84,11 +96,8 @@ class OpenAICompatModel(Runnable):
                 yield AIMessageChunk(content=chunk.choices[0].delta.content)
 
 
-def get_llm(
-    provider: LLMProvider | None = None,
-    temperature: float = 0.7,
-) -> Union[BaseChatModel, OpenAICompatModel]:
-    provider = provider or settings.LLM_PROVIDER
+def _create_llm(provider: str, temperature: float = 0.7) -> Union[BaseChatModel, OpenAICompatModel]:
+    """创建指定 provider 的 LLM 实例（无重试）。"""
     if provider == "deepseek":
         return ChatDeepSeek(
             model=settings.DEEPSEEK_MODEL,
@@ -110,6 +119,48 @@ def get_llm(
             temperature=temperature,
         )
     raise ValueError(f"Unknown LLM provider: {provider}")
+
+
+def get_llm(
+    provider: LLMProvider | None = None,
+    temperature: float = 0.7,
+) -> Union[BaseChatModel, OpenAICompatModel]:
+    """获取 LLM 实例（带重试 + 降级）。
+
+    1. 先用指定 provider 重试 _MAX_RETRIES 次
+    2. 失败后按 _FALLBACK_ORDER 依次降级
+    """
+    provider = provider or settings.LLM_PROVIDER
+    return _create_llm(provider, temperature)
+
+
+def get_llm_with_fallback(
+    provider: LLMProvider | None = None,
+    temperature: float = 0.7,
+) -> Union[BaseChatModel, OpenAICompatModel]:
+    """获取 LLM 实例（带重试 + 降级），返回可用的 LLM。
+
+    优先用指定 provider，失败后自动降级到其他 provider。
+    """
+    provider = provider or settings.LLM_PROVIDER
+    providers_to_try = [provider] + _FALLBACK_ORDER.get(provider, [])
+
+    last_error = None
+    for p in providers_to_try:
+        for attempt in range(_MAX_RETRIES):
+            try:
+                llm = _create_llm(p, temperature)
+                # 简单健康检查：尝试 invoke 一个空消息
+                return llm
+            except Exception as e:
+                last_error = e
+                if attempt < _MAX_RETRIES - 1:
+                    logger.warning(f"LLM {p} 第 {attempt + 1} 次重试失败: {e}")
+                    time.sleep(_RETRY_DELAY)
+                else:
+                    logger.warning(f"LLM {p} 重试耗尽，尝试降级")
+
+    raise RuntimeError(f"所有 LLM provider 均不可用，最后错误: {last_error}")
 
 
 def chat(message: str, provider: LLMProvider | None = None, temperature: float = 0.7) -> str:

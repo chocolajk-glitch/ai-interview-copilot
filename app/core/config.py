@@ -1,4 +1,12 @@
 """应用配置：从 .env 文件加载所有配置。"""
+import os
+
+# 模型离线加载：BGE embedding / reranker 已下载到本地缓存，避免 sentence-transformers
+# 反复 HEAD 远端 huggingface.co 检查不存在的 adapter_config.json / processor_config.json
+# （每次重试 1+2+4+8+8=23s，会让 turn 2/3 整体卡 1 分钟以上）。
+os.environ.setdefault("HF_HUB_OFFLINE", "1")
+os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+
 from functools import lru_cache
 from typing import Literal
 from pathlib import Path
@@ -43,6 +51,11 @@ class Settings(BaseSettings):
     APP_DEBUG: bool = True
     LOG_LEVEL: str = "INFO"
 
+    HISTORY_BACKEND: str = "redis"
+    REDIS_HOST: str = "localhost"
+    REDIS_PORT: int = 6379
+    REDIS_DB: int = 0
+    HISTORY_TTL: int = 86400
 
 @lru_cache
 def get_settings() -> Settings:

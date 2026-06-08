@@ -28,8 +28,8 @@ async def test_astream_returns_multiple_chunks():
     assert all(isinstance(c, AIMessageChunk) for c in chunks)
 
 
-async def test_chain_astream_yields_chunk_sources_done():
-    """RAG chain.astream 端到端：应 yield chunk + sources + done 三种事件。"""
+async def test_chain_astream_yields_chunk_citations_done():
+    """RAG chain.astream 端到端：应 yield chunk + citations + done 三种事件。"""
     from app.rag.chain import astream
 
     events = []
@@ -38,11 +38,11 @@ async def test_chain_astream_yields_chunk_sources_done():
 
     types = [e["type"] for e in events]
     assert "chunk" in types, "必须 yield chunk 事件"
-    assert "sources" in types, "必须 yield sources 事件"
+    assert "citations" in types, "必须 yield citations 事件"
     assert "done" in types, "必须 yield done 事件"
 
     chunks = [e for e in events if e["type"] == "chunk"]
     assert len(chunks) >= 1, "至少 1 个 chunk"
 
-    sources_event = next(e for e in events if e["type"] == "sources")
-    assert "01_two_sum" in str(sources_event["sources"]), "sources 应包含 two_sum.md"
+    citations_event = next(e for e in events if e["type"] == "citations")
+    assert "01_two_sum" in str(citations_event["citations"]), "citations 应包含 two_sum.md"

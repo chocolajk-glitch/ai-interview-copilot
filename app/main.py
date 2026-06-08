@@ -1,16 +1,22 @@
 """FastAPI 应用入口。"""
+
 from contextlib import asynccontextmanager
-from app.api.chat import router as chat_router
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.chat import router as chat_router
+from app.api.document import router as document_router
+from app.api.eval import router as eval_router
 from app.core.config import settings
 from app.core.logging import logger, setup_logging
+from app.models import init_db
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     setup_logging()
+    await init_db()
     logger.info(f"🚀 启动 | LLM={settings.LLM_PROVIDER} | Port={settings.APP_PORT}")
     yield
     logger.info("👋 关闭")
@@ -31,6 +37,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(chat_router)
+app.include_router(document_router)
+app.include_router(eval_router)
+
 
 @app.get("/", tags=["system"])
 async def root() -> dict:
