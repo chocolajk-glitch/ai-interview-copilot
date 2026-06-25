@@ -6,7 +6,7 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import AIMessage, AIMessageChunk, HumanMessage
 from langchain_core.runnables import Runnable
 from langchain_deepseek import ChatDeepSeek
-from openai import AsyncOpenAI, OpenAI
+from openai import APIConnectionError, APITimeoutError, AsyncOpenAI, OpenAI, RateLimitError
 from app.core.config import settings
 from app.core.logging import logger
 
@@ -21,6 +21,21 @@ _FALLBACK_ORDER: dict[str, list[str]] = {
 
 _MAX_RETRIES = 2
 _RETRY_DELAY = 1.0  # 秒
+
+
+# 触发降级的"瞬态错误"集合（网络/限流/超时/服务异常）。
+# 这些错误切下一个 provider 大概率能恢复；其他异常（如 KeyError、TypeError）
+# 说明是我们代码 bug，让它崩出去以便排查。
+_TRANSIENT_ERRORS: tuple[type[BaseException], ...] = (
+    APIConnectionError,    # 网络连接失败：DNS、连接被拒、TLS 握手失败
+    APITimeoutError,       # 请求超时：provider 服务器 30s 没回
+    RateLimitError,        # 限流：触发 provider QPS / TPM 上限
+)
+
+
+def _is_transient_error(e: BaseException) -> bool:
+    """判断异常是否属于'瞬态错误'——决定是否触发降级。"""
+    return isinstance(e, _TRANSIENT_ERRORS)
 
 
 def _extract_messages(input) -> list:
@@ -152,6 +167,13 @@ class FallbackChatModel(Runnable):
                 return self._try_invoke(idx, input, config, **kwargs)
             except Exception as e:
                 last_error = e
+                if not _is_transient_error(e):
+                    # 非瞬态错误（代码 bug / 配置错 / 鉴权失败）→ 直接抛出，不吞 bug
+                    logger.error(
+                        f"LLM[{idx}] invoke 遇到非瞬态错误，不降级: "
+                        f"{type(e).__name__}: {str(e)[:200]}"
+                    )
+                    raise
                 logger.warning(
                     f"LLM[{idx}] invoke 失败，尝试降级: {type(e).__name__}: {str(e)[:200]}"
                 )
@@ -164,6 +186,12 @@ class FallbackChatModel(Runnable):
                 return await self._try_ainvoke(idx, input, config, **kwargs)
             except Exception as e:
                 last_error = e
+                if not _is_transient_error(e):
+                    logger.error(
+                        f"LLM[{idx}] ainvoke 遇到非瞬态错误，不降级: "
+                        f"{type(e).__name__}: {str(e)[:200]}"
+                    )
+                    raise
                 logger.warning(
                     f"LLM[{idx}] ainvoke 失败，尝试降级: {type(e).__name__}: {str(e)[:200]}"
                 )
@@ -177,6 +205,12 @@ class FallbackChatModel(Runnable):
                 return
             except Exception as e:
                 last_error = e
+                if not _is_transient_error(e):
+                    logger.error(
+                        f"LLM[{idx}] stream 遇到非瞬态错误，不降级: "
+                        f"{type(e).__name__}: {str(e)[:200]}"
+                    )
+                    raise
                 logger.warning(
                     f"LLM[{idx}] stream 失败，尝试降级: {type(e).__name__}: {str(e)[:200]}"
                 )
@@ -191,6 +225,12 @@ class FallbackChatModel(Runnable):
                 return
             except Exception as e:
                 last_error = e
+                if not _is_transient_error(e):
+                    logger.error(
+                        f"LLM[{idx}] astream 遇到非瞬态错误，不降级: "
+                        f"{type(e).__name__}: {str(e)[:200]}"
+                    )
+                    raise
                 logger.warning(
                     f"LLM[{idx}] astream 失败，尝试降级: {type(e).__name__}: {str(e)[:200]}"
                 )
