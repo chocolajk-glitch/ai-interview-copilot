@@ -1,0 +1,44 @@
+flowchart TD
+    Start([START]) --> QA[query_analyzer<br/>意图分类]
+
+    QA -->|规则匹配命中| QAResult{int = chat?}
+    QA -->|需 LLM 分类| QALLM[LLM 分类<br/>INTENT_PROMPT]
+    QALLM --> QAResult
+
+    QAResult -->|chat| Gen[generator<br/>CHAT_PROMPT]
+    QAResult -->|factual 或 code| QR[query_rewriter<br/>查询改写]
+
+    QR -->|chat| RetSkip[跳过 RAG]
+    QR -->|factual 或 code| Ret[retriever<br/>混合检索]
+
+    Ret -->|code 意图| RetCode[扩大候选池到 20<br/>优先 code chunk]
+    Ret -->|factual| RetFact[直接 top-k=3]
+    RetCode --> Rerank
+    RetFact --> Rerank
+
+    Rerank[reranker_node<br/>BGE cross-encoder 精排] --> Gen
+
+    Gen -->|chat 或无召回| GenChat[CHAT_PROMPT]
+    Gen -->|有 docs| GenRAG[GENERATOR_PROMPT + 文档]
+    GenChat --> Ref
+    GenRAG --> Ref
+
+    Ref[reflection<br/>LLM 自我评估]
+    Ref -->|chat 跳过| End1([END])
+    Ref -->|pass| End2([END])
+    Ref -->|fail 且 count 不超限| RefFail[清空 answer<br/>k += 2]
+    Ref -->|fail 且 count 超限| End3([END])
+
+    RefFail --> Ret
+
+    style QA fill:#e1f5ff
+    style QR fill:#e1f5ff
+    style Ret fill:#fff4e1
+    style Rerank fill:#fff4e1
+    style Gen fill:#e8f5e9
+    style Ref fill:#fce4ec
+    style RefFail fill:#ffcdd2
+    style End1 fill:#c8e6c9
+    style End2 fill:#c8e6c9
+    style End3 fill:#c8e6c9
+    style Start fill:#c8e6c9

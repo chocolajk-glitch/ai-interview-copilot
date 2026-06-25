@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.benchmarks/
+.mypy_cache/
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Env & secrets
+.env
+.env.local
+*.pem
+
+# Logs
+*.log
+.uvicorn.log
+backend/data/logs/*.jsonl
+!backend/data/logs/.gitkeep
+
+# Runtime data (rebuildable)
+backend/data/chroma/
+backend/data/uploads/
+backend/data/processed/
+backend/data/eval/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup
+backend/.git.bak/
